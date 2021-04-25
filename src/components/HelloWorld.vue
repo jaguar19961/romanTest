@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <h3>Hello, this application used for conversion numbers in latin</h3>
+    <h6>Insert your number: </h6>
     <input type="number" v-model="value">
     <h5>Result: {{ result }}</h5>
   </div>
@@ -10,7 +12,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      value: 0,
+      value: 1,
       result: 0,
       map: {
         M: 1000,
@@ -28,6 +30,10 @@ export default {
         I: 1,
       }
     }
+  },
+
+  created() {
+    this.check(this.value);
   },
 
   watch: {
