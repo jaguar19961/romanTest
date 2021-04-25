@@ -46,14 +46,18 @@ export default {
 
   methods: {
     check(num, result = '') {
-      for (const key in this.map) {
-        if (num >= this.map[key]) {
-          if (num !== 0) {
-            return this.check(num - this.map[key], result + key);
+      if (num > 9999) {
+        this.result = 'maximum int number permitted: 9999'
+      }else {
+        for (const key in this.map) {
+          if (num >= this.map[key]) {
+            if (num !== 0) {
+              return this.check(num - this.map[key], result + key);
+            }
           }
         }
+        this.result = result;
       }
-      this.result = result;
     }
   }
 }
